@@ -1,0 +1,32 @@
+* {
+margin:0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+html {
+    background-color: rgb(255, 255, 255);
+
+}
+
+.container {
+
+    max-width:600px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+
+
+.span {
+    color: #eb228a;
+    text-align: center;
+    
+}
+
+.text-output {
+    font-size: larger;
+    color: rgb(200, 32, 206);padding: 15px; 
+    
+}   
