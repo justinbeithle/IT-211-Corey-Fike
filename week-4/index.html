@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "eng">
+
+<head>
+    <title>HW 4 - Pass/Fail</title>
+</head>
+
+<style> 
+
+   body { 
+    background-image: url(matrix.jpg);
+   }
+
+   h1{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+        letter-spacing: .1rem;
+   }
+
+   #form1 {
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        letter-spacing: .15rem;
+        margin: auto;
+        font-weight: bold;
+   }
+
+   form input {
+            margin: 5px;
+            padding: 5px;
+   }
+
+</style> 
+
+<body> 
+
+<h1>Password Validator</h1>
+
+<form id="form1" action="#" onsubmit="return validateForm(this);">
+    First name: <input type="text" name="firstname"><br>
+    Last name: <input type="text" name="lastname"><br>
+    Password: <input type="password" name="password"><br>
+  
+    <button > Check </button>
+</form>
+
+</body>
+
+<script>
+    // This is our function to validate the password 
+    function validatePassword(password) {
+        // First time using regex, but it's a way to describe a pattern
+
+        //This ensures returned value with at least have 8 characters, one upper case letter, and one lowercase letter
+        const regex = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/; 
+
+        return regex.test(password); //test method will test for a match in a string
+    }
+
+    // Function to validate the form
+    function validateForm(form) {
+        // Get the values entered by the user in the form fields
+        const firstName = form.firstname.value;
+        const lastName = form.lastname.value;
+        const password = form.password.value;
+
+        // Check if any of the "fields" are empty. 
+        if (!firstName || !lastName || !password) {  //! operator takes truth to falsity, if fields are empty, the operator will make it "true" triggering the alert! 
+            alert("Please fill in all the fields.");
+            return false; // Stop the form submission as the form is not valid
+        }
+
+        // Check if the password is valid using the validatePassword function
+    
+        if (!validatePassword(password)) { //! Logical NOT operator is used again 
+            alert("Cannot use that passowrd. Please Create a password with 8 characters that conatin at least one upper case and one lower case letter");
+            return false; // Used a boolean value of fals to stop the for from submitting
+        }
+
+        // If all fields are valid, reutrn a message confirming this and submit the form 
+        alert("All fields are valid.");
+        return true;
+    }
+</script>
+
+
+</html>
